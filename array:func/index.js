@@ -9,7 +9,7 @@ const checkAndReplaceOdd = (numbers) => {
   for (const number of numbers) {
     if (number % 2 === 0) {
       allOdd = false;
-      // Bonus: Replace even numbers with odd numbers
+      // change to odd
       numbers[numbers.indexOf(number)] = number + 1;
     }
   }
@@ -25,15 +25,28 @@ console.log(oddNumbers);
 const fahrenheitTemps = [32, 50, 68, 86, 104, 122, 140, 158, 176, 194];
 
 const calculateAverageTemperature = (temperatures) => {
-  const sum = temperatures.reduce((acc, temp) => acc + temp, 0);
+  let sum = 0;
+
+  for (const temperature of temperatures) {
+    sum += temperature;
+  }
+
   return sum / temperatures.length;
 };
 
 console.log(calculateAverageTemperature(fahrenheitTemps));
 
 const findHighestTemperature = (temperatures) => {
-  return Math.max(...temperatures);
+  let highest = temperatures[0];
+
+  for (const temperature of temperatures) {
+    if (temperature > highest) {
+      highest = temperature;
+    }
+  }
+  return highest;
 };
+
 
 console.log(findHighestTemperature(fahrenheitTemps));
 
